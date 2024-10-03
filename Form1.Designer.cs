@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnUpload = new Button();
             pictureBox1 = new PictureBox();
             lblRGB = new Label();
             lblHEX = new Label();
             label1 = new Label();
             label2 = new Label();
+            btnCopy = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // btnUpload
             // 
-            button1.Location = new Point(1303, 262);
-            button1.Name = "button1";
-            button1.Size = new Size(117, 44);
-            button1.TabIndex = 0;
-            button1.Text = "Upload Image";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnUpload.Location = new Point(1303, 262);
+            btnUpload.Name = "btnUpload";
+            btnUpload.Size = new Size(117, 44);
+            btnUpload.TabIndex = 0;
+            btnUpload.Text = "Upload Image";
+            btnUpload.UseVisualStyleBackColor = true;
+            btnUpload.Click += btnUpload_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(17, 18);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1280, 720);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             pictureBox1.MouseClick += pictureBox1_MouseClick;
@@ -95,17 +95,27 @@
             label2.Text = "HEX:";
             label2.TextAlign = ContentAlignment.BottomCenter;
             // 
+            // btnCopy
+            // 
+            btnCopy.Location = new Point(1333, 426);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(58, 24);
+            btnCopy.TabIndex = 6;
+            btnCopy.Text = "Copy";
+            btnCopy.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1424, 771);
+            Controls.Add(btnCopy);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(lblHEX);
             Controls.Add(lblRGB);
             Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(btnUpload);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -114,11 +124,12 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnUpload;
         private PictureBox pictureBox1;
         private Label lblRGB;
         private Label lblHEX;
         private Label label1;
         private Label label2;
+        private Button btnCopy;
     }
 }

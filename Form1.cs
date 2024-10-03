@@ -11,7 +11,8 @@ namespace ColorPicker
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btnUpload_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -35,8 +36,14 @@ namespace ColorPicker
 
                     string hex = ColorTranslator.ToHtml(color);
                     lblHEX.Text = $"{hex}";
+
+                    btnCopy.BackColor = color;
+
+                    Clipboard.SetText(hex);
+
                 }
             }
         }
+
     }
 }
