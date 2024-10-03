@@ -9,9 +9,12 @@ namespace ColorPicker
         public Form1()
         {
             InitializeComponent();
+            
         }
 
-        
+        string hex;
+        Color color;
+
         private void btnUpload_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -31,19 +34,20 @@ namespace ColorPicker
                 Bitmap bitmap = new Bitmap(pictureBox1.Image);
                 if (e.X < bitmap.Width && e.Y < bitmap.Height)
                 {
-                    Color color = bitmap.GetPixel(e.X, e.Y);
+                    color = bitmap.GetPixel(e.X, e.Y);
                     lblRGB.Text = $"{color.R}, {color.G}, {color.B}";
 
-                    string hex = ColorTranslator.ToHtml(color);
+                    hex = ColorTranslator.ToHtml(color);
                     lblHEX.Text = $"{hex}";
 
                     btnCopy.BackColor = color;
-
-                    Clipboard.SetText(hex);
-
                 }
             }
         }
 
+        private void btnCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(hex);
+        }
     }
 }

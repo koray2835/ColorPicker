@@ -103,6 +103,7 @@
             btnCopy.TabIndex = 6;
             btnCopy.Text = "Copy";
             btnCopy.UseVisualStyleBackColor = true;
+            btnCopy.Click += btnCopy_Click;
             // 
             // Form1
             // 
