@@ -8,22 +8,19 @@ namespace ColorPicker
     {
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
-        string hex;
+        string hex = "#ffffff";
         Color color;
 
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using OpenFileDialog openFileDialog = new();
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    pictureBox1.Image = new Bitmap(openFileDialog.FileName);
-                }
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
             }
         }
 
@@ -31,7 +28,7 @@ namespace ColorPicker
         {
             if (pictureBox1.Image != null)
             {
-                Bitmap bitmap = new Bitmap(pictureBox1.Image);
+                Bitmap bitmap = new(pictureBox1.Image);
                 if (e.X < bitmap.Width && e.Y < bitmap.Height)
                 {
                     color = bitmap.GetPixel(e.X, e.Y);
